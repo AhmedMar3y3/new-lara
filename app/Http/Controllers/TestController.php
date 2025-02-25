@@ -19,4 +19,13 @@ class TestController extends Controller
          Test::create($request->validated());
         return response()->json('created successfully', 201);
     }
+
+    public function destroy($id){
+        $test = Test::find($id);
+        if($test){
+            $test->delete();
+            return response()->json('deleted successfully', 200);
+        }
+        return response()->json('not found', 404);
+    }
 }

@@ -10,3 +10,4 @@ Route::get('/user', function (Request $request) {
 
 Route::get('/tests', [TestController::class, 'index']);
 Route::post('/tests', [TestController::class, 'store']);
+Route::delete('/tests/{id}', [TestController::class, 'destroy']);
