@@ -14,6 +14,15 @@ class TestController extends Controller
          return response()->json($tests);
     }
 
+    public function show($id)
+    {
+        $test = Test::find($id);
+        if($test){
+            return response()->json($test);
+        }
+        return response()->json('not found', 404);
+    }
+
     public function store(StoreTestRequest $request)
     {
          Test::create($request->validated());
